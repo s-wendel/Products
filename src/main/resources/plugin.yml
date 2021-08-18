@@ -1,0 +1,5 @@
+name: Products
+version: '${project.version}'
+main: com.productsmc.products.Products
+api-version: 1.17
+authors: [ swendel, CoffeeGopher ]
