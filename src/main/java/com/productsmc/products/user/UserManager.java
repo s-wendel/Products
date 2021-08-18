@@ -1,9 +1,9 @@
 package com.productsmc.products.user;
 
+import com.productsmc.products.item.Mat;
+import com.productsmc.products.profession.Profession;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
-import products.item.Mat;
-import products.profession.Profession;
 
 import java.util.HashMap;
 import java.util.Map;
