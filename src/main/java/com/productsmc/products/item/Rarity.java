@@ -9,7 +9,8 @@ public enum Rarity {
 	RARE(ChatColor.DARK_AQUA, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "RARE"),
 	EPIC(ChatColor.AQUA, ChatColor.AQUA + "" + ChatColor.BOLD + "EPIC"),
 	LEGENDARY(ChatColor.LIGHT_PURPLE, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "LEGENDARY"),
-	MYTHIC(ChatColor.RED, ChatColor.RED + "" + ChatColor.BOLD + "MYTHIC");
+	MYTHIC(ChatColor.RED, ChatColor.RED + "" + ChatColor.BOLD + "MYTHIC"),
+	EVENT(ChatColor.GOLD, ChatColor.GOLD + "" + ChatColor.BOLD + "EVENT");
 	
 	private ChatColor color;
 	private String lore;

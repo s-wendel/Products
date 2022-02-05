@@ -32,7 +32,7 @@ private UUID player;
 			}	
 		}
 		config = new YamlConfiguration();	
-		try { config.load(file); } catch (IOException | InvalidConfigurationException e) { e.printStackTrace(); }
+		try { config.load(file); } catch (IOException | InvalidConfigurationException e) {}
     }
 	
 	public FileConfiguration getConfig() {

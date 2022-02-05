@@ -56,7 +56,7 @@ public class ItemBuilder {
 	}
 	
 	public ItemBuilder setLore(String... lines) {
-		List<String> newLines = new ArrayList<String>();
+		List<String> newLines = itemMeta.hasLore() ? itemMeta.getLore() : new ArrayList<String>();
 		for(String line : lines)
 			newLines.add(ChatColor.translateAlternateColorCodes('&', line));
 		itemMeta.setLore(newLines);

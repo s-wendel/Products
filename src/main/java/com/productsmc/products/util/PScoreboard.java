@@ -15,7 +15,7 @@ public class PScoreboard {
 	
 	public PScoreboard() {
 		board = Bukkit.getScoreboardManager().getNewScoreboard();
-		obj = board.registerNewObjective("products", "dummy", ChatColor.YELLOW + "" + ChatColor.BOLD + "PRODUCTS " + ChatColor.WHITE + "" + ChatColor.BOLD + "S1");
+		obj = board.registerNewObjective("products", "dummy", ChatColor.YELLOW + "" + ChatColor.BOLD + "PRODUCTS " + ChatColor.WHITE + "" + ChatColor.BOLD + "S2");
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 	}
 	

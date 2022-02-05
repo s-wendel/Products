@@ -1,19 +1,21 @@
 package com.productsmc.products.item;
 
+import com.productsmc.products.Products;
+import com.productsmc.products.profession.Profession;
+import com.productsmc.products.user.User;
+import com.productsmc.products.util.ItemBuilder;
+import com.productsmc.products.util.ProductsUtil;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import products.Products;
-import products.profession.Profession;
-import products.user.User;
-import products.util.ItemBuilder;
-import products.util.ProductsUtil;
 
 import java.util.UUID;
 
 public enum Mat {
 
+	SHARDS(null, null, null),
 	STONE(Material.STONE, Profession.MINING, Rarity.COMMON),
 	COAL_ORE(Material.COAL_ORE, Profession.MINING, Rarity.COMMON),
 	IRON_ORE(Material.IRON_ORE, Profession.MINING, Rarity.COMMON),
@@ -31,11 +33,23 @@ public enum Mat {
 	DARK_LAPIS(Material.DEEPSLATE_LAPIS_ORE, Profession.MINING, Rarity.EPIC),
 	DARK_DIAMOND(Material.DEEPSLATE_DIAMOND_ORE, Profession.MINING, Rarity.LEGENDARY),
 	DARK_EMERALD(Material.DEEPSLATE_EMERALD_ORE, Profession.MINING, Rarity.LEGENDARY),
-	WHEAT(Material.WHEAT, Profession.FARMING, Rarity.COMMON),
-	CARROT(Material.CARROT, Profession.FARMING, Rarity.UNCOMMON),
-	POTATO(Material.POTATO, Profession.FARMING, Rarity.UNCOMMON),
-	BEETROOT(Material.BEETROOT, Profession.FARMING, Rarity.RARE),
-	NETHER_WART(Material.NETHER_WART, Profession.FARMING, Rarity.EPIC),;
+	CARROT(Material.CARROT, Profession.FARMING, Rarity.COMMON),
+	GOLDEN_CARROT(Material.GOLDEN_CARROT, Profession.FARMING, Rarity.UNCOMMON),
+	POTATO(Material.POTATO, Profession.FARMING, Rarity.COMMON),
+	GOLDEN_POTATO(Material.RAW_GOLD, Profession.FARMING, Rarity.UNCOMMON),
+	BEETROOT(Material.BEETROOT, Profession.FARMING, Rarity.UNCOMMON),
+	BEETROOT_SEED(Material.BEETROOT_SEEDS, Profession.FARMING, Rarity.COMMON),
+	GOLDEN_BEETROOT(Material.RABBIT_FOOT, Profession.FARMING, Rarity.RARE),
+	WHEAT(Material.WHEAT, Profession.FARMING, Rarity.RARE),
+	WHEAT_SEED(Material.WHEAT_SEEDS, Profession.FARMING, Rarity.UNCOMMON),
+	GOLDEN_WHEAT(Material.YELLOW_DYE, Profession.FARMING, Rarity.EPIC),
+	NETHER_WART(Material.NETHER_WART, Profession.FARMING, Rarity.EPIC),
+	GOLDEN_NETHER_WART(Material.GOLD_NUGGET, Profession.FARMING, Rarity.LEGENDARY),
+	COLOSSAL_STONE(Material.DEEPSLATE, Profession.MINING, Rarity.EPIC),
+	RAINBOW_GEM(Material.MAGMA_CREAM, Profession.MINING, Rarity.LEGENDARY),
+	RAINBOW_CROP(Material.BLAZE_POWDER, Profession.FARMING, Rarity.LEGENDARY),
+	TROPHY(Material.YELLOW_CANDLE, Profession.GLOBAL, Rarity.LEGENDARY),
+	;
 	
 	private Material icon;
 	private Rarity rarity;
@@ -67,6 +81,8 @@ public enum Mat {
 						ChatColor.GRAY + "by the Forger using '/forge'",
 						"",
 						rarity.getLore())
+				.setUnbreakable(true)
+				.addFlag(ItemFlag.HIDE_ATTRIBUTES)
 				.toItemStack();
 	}
 	

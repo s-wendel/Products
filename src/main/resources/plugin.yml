@@ -2,4 +2,57 @@ name: Products
 version: '${project.version}'
 main: com.productsmc.products.Products
 api-version: 1.17
-authors: [ swendel, CoffeeGopher ]
+authors: [ swendel ]
+commands:
+  shards:
+    aliases: [ tokens ]
+  setshards:
+  coins:
+    aliases: [ bal, balance, money ]
+  setcoins:
+  test:
+  givepet:
+    description: Gives a pet to a player
+  pets:
+    aliases: [ pet ]
+  givegen:
+  forge:
+  quests:
+    aliases: [ q, challenges, ch ]
+  giveitem:
+  level:
+  refreshcrates:
+  setexperience:
+  setlevel:
+  shop:
+  addgens:
+  setgens:
+  addmulti:
+  setmulti:
+  sell:
+  cleargens:
+  coinstop:
+    aliases: [ baltop, balancetop, moneytop ]
+  spawn:
+  crates:
+  start:
+  guide:
+    aliases: [ help, info ]
+  pay:
+  shardpay:
+  mine:
+  farm:
+  discord:
+    aliases: [ disc ]
+  fly:
+    aliases: [ flight, efly ]
+  stats:
+  scrap:
+    aliases: [ scrapper, dispose, trash ]
+  leveltop:
+  trails:
+    aliases: [ particles, particle, trail ]
+  link:
+  checkquests:
+  warp:
+    aliases: [ warps, ewarp, ewarps ]
