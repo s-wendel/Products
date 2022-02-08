@@ -89,7 +89,7 @@ public class EggListener implements Listener {
 			}
 	         
 			location.getWorld().playSound(location, Sound.ENTITY_AXOLOTL_SPLASH, 1, 2);
-	        MiningListener.registerBlocks(player, blocks, false);
+	        //MiningListener.registerBlocks(player, blocks, false);
 	        
 		}
 	}

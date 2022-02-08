@@ -344,7 +344,7 @@ public enum Pet {
                         }
                     }
 
-                    MiningListener.registerBlocks(player, list, true);
+                    //MiningListener.registerBlocks(player, list, true);
                     location.getWorld().playSound(location, Sound.ENTITY_GENERIC_EXPLODE, 1f, 1f);
                 }
                 break;

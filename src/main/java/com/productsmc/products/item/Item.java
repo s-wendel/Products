@@ -372,8 +372,7 @@ public enum Item {
                             for(int z = bz - 5; z <= bz + 5; z++) {
                                 double distance = ((bx-x) * (bx-x) + ((bz-z) * (bz-z)) + ((by-y) * (by-y)));
                                 if(distance < 25) {
-                                    Location check = new Location(location.getWorld(), x, y, z);
-                                    Map<Location, Material> blocks = Products.getInstance().blocks;
+                                    /*Location check = new Location(location.getWorld(), x, y, z);
                                     List<Location> remove = new ArrayList<>();
                                     for(Location ore : blocks.keySet()) {
                                         if(check.equals(ore)) {
@@ -440,7 +439,7 @@ public enum Item {
                                         }
                                     }
                                     for(Location removed : remove)
-                                        blocks.remove(removed);
+                                        blocks.remove(removed);*/
                                 }
                             }
                         }

@@ -33,6 +33,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MiningListener implements Listener {
 
+	/*
+
 	@EventHandler
 	public void blockBreak(BlockBreakEvent event) {
 		Player player = event.getPlayer();
@@ -338,7 +340,7 @@ public class MiningListener implements Listener {
 			total += shards;
 	        user.setShards(user.getShards()+shards);
 	        Location location = block.getLocation();
-	        Products.getInstance().blocks.put(location, Material.valueOf(original.name().replaceAll("DEEPSLATE_", "")));
+	        /*Products.getInstance().blocks.put(location, Material.valueOf(original.name().replaceAll("DEEPSLATE_", "")));
 	        block.setType(Material.BEDROCK);
 	        new BukkitRunnable() {
 	        	@Override
@@ -440,6 +442,6 @@ public class MiningListener implements Listener {
 		if(event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock().getType() == Material.ENCHANTING_TABLE) {
 			event.setCancelled(true);
 		}
-	}
+	}*/
 	
 }

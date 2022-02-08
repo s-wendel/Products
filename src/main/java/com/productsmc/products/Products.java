@@ -1,15 +1,11 @@
 package com.productsmc.products;
 
-import com.productsmc.products.bot.CoinsTopListener;
-import com.productsmc.products.bot.DiscordLinkCommand;
-import com.productsmc.products.bot.RegisterPlayerListener;
 import com.productsmc.products.command.*;
 import com.productsmc.products.crate.BundleListener;
 import com.productsmc.products.crate.Crate;
 import com.productsmc.products.crate.CrateListener;
 import com.productsmc.products.crate.CrateManager;
 import com.productsmc.products.forging.ForgingCommand;
-import com.productsmc.products.generator.Generator;
 import com.productsmc.products.generator.GeneratorListener;
 import com.productsmc.products.generator.GiveGeneratorCommand;
 import com.productsmc.products.guide.GuideCommand;
@@ -18,7 +14,6 @@ import com.productsmc.products.item.listener.*;
 import com.productsmc.products.leaderboard.LeaderboardUpdater;
 import com.productsmc.products.pads.PadListener;
 import com.productsmc.products.pets.GivePetCommand;
-import com.productsmc.products.pets.Pet;
 import com.productsmc.products.pets.PetCommand;
 import com.productsmc.products.profession.farming.FarmingListener;
 import com.productsmc.products.profession.mining.KillListener;
@@ -30,24 +25,16 @@ import com.productsmc.products.shop.ShopCommand;
 import com.productsmc.products.trail.TrailCommand;
 import com.productsmc.products.user.*;
 import com.productsmc.products.util.InventoryManager;
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.requests.GatewayIntent;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.command.defaults.HelpCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.productsmc.products.profession.mining.EggListener;
 import com.productsmc.products.profession.mining.MiningListener;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.checkerframework.checker.units.qual.C;
 
-import javax.security.auth.login.LoginException;
 import java.util.*;
 
 public class Products extends JavaPlugin {
@@ -55,32 +42,14 @@ public class Products extends JavaPlugin {
 	public static Products instance;
 	private UserManager userManager;
 	private InventoryManager inventoryManager;
-	public Map<Location, Material> blocks;
 	private CrateManager crateManager;
 	public LinkedHashMap<UUID, Long> topCoins;
 	public LinkedHashMap<UUID, Integer> topLevels;
 	public Map<UUID, String> botTokens;
 
-	public static final String BOT_TOKEN = "ODM1NjY2MzU2NjMxMjQwNzQ0.YISw8Q.8FEAFQjfUogo08DZfcYCQPak6xo";
-	private JDA jda;
-
 	@Override
 	public void onEnable() {
 		instance = this;
-
-		JDABuilder builder = JDABuilder.createDefault(BOT_TOKEN);
-		builder.setActivity(Activity.playing("products.minehut.gg"));
-		builder.enableIntents(GatewayIntent.GUILD_MEMBERS);
-
-		try {
-
-			jda = builder.build();
-			jda.addEventListener(new CoinsTopListener());
-			jda.addEventListener(new RegisterPlayerListener());
-
-		} catch (LoginException e) {
-			e.printStackTrace();
-		}
 
 		userManager = new UserManager();
 		inventoryManager = new InventoryManager();
@@ -108,7 +77,6 @@ public class Products extends JavaPlugin {
 		getCommand("shards").setExecutor(new ShardCommand());
 		getCommand("setshards").setExecutor(new ShardCommand());
 		getCommand("coins").setExecutor(new CoinsCommand());
-		getCommand("link").setExecutor(new DiscordLinkCommand());
 		getCommand("setcoins").setExecutor(new CoinsCommand());
 		getCommand("test").setExecutor(new TestCommand());
 		getCommand("givepet").setExecutor(new GivePetCommand());
@@ -145,7 +113,6 @@ public class Products extends JavaPlugin {
 		getCommand("leveltop").setExecutor(new LevelCommand());
 		getCommand("trails").setExecutor(new TrailCommand());
 		getCommand("checkquests").setExecutor(new TestQuestCommand());
-		blocks = new HashMap<Location, Material>();
 		crateManager = new CrateManager();
 		addCrates();
 
@@ -205,13 +172,10 @@ public class Products extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
-		for(Location location : blocks.keySet())
-			location.getBlock().setType(blocks.get(location));
 		for(User user : userManager.getUsers().values()) {
 			userManager.saveData(user.getID());
 		}
 		instance = null;
-		jda.shutdown();
 	}
 	
 	public static String getPrefix() {
